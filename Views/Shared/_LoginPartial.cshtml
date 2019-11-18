@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="item-nav-list">
+            <div class="dropdown">
+
+            <a class="link-nav-list text-decoration-none " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                <span data-feather="user" class="icon-nav-list"> </span>
+            </a>
+            
+            <div class="dropdown-menu">
+                <a id="manage" class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"> <i class="mr-1 icon-management" data-feather="settings"> </i> @UserManager.GetUserName(User) </a>
+            </div>
+        </li>
+
+
+        <li class="item-nav-list">
+            <form class="link-nav-list" id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <a class="text-decoration-none" id="logout" onclick="document.getElementById('logoutForm').submit();"> <i data-feather="log-out"> </i> </a>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="item-nav-list">
+            <div class="dropdown mr-1">
+
+                <a class="link-nav-list text-decoration-none " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                    <span data-feather="user" class="icon-nav-list"> </span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" id="register" asp-area="Identity" asp-page="/Account/Register"> Registarte </a>
+                    <a class="dropdown-item" id="login" asp-area="Identity" asp-page="/Account/Login"> Login </a>
+                </div>
+
+            </div>
+        </li>
+
+        
+    }

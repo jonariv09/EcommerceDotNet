@@ -1,0 +1,28 @@
+@model FacturaUsuarioViewModel
+
+@{
+    var usuario = @Model;
+}
+
+<div class="col-md-4">
+    <div class="card border-info m-3" style="max-width: 18rem;">
+        <div class="card-header"> Información de factura y cliente </div>
+        <div class="card-body text-info">
+            <p class="card-text"> <span class="badge badge-primary text-wrap" style="width: 5rem;"> Nombres: </span>
+                @usuario.NombresUsuario
+            </p>
+
+            <p class="card-text"> <span class="badge badge-primary text-wrap" style="width: 5rem;"> Apellidos: </span>
+                @usuario.ApellidosUsuario
+            </p>
+
+            <p class="card-text"> <span class="badge badge-primary text-wrap" style="width: 5rem;"> Fecha: </span>
+                @usuario.Fecha
+            </p>
+
+            <p class="card-text"> <span class="badge badge-primary text-wrap" style="width: 5rem;"> Total: </span>
+            $ @usuario.Total
+            </p>
+        </div>
+    </div>
+</div>

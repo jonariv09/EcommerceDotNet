@@ -1,0 +1,23 @@
+@model Usuario
+
+@{
+    var usuario = Model;
+}
+
+
+
+<div class="col-md-4">
+    <div class="mx-3 card">
+        <img src="https://cdn.pixabay.com/photo/2017/03/21/02/00/user-2160923_960_720.png" width="8rem" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text"> Nombre: @usuario.Nombres </p>
+            <p class="card-text"> Apellidos: @usuario.Apellidos </p>    
+            <p class="card-text"> Correo: @usuario.Correo </p>
+        </div>
+        <div class="card-footer">
+            <a asp-controller="Usuarios" asp-action="Editar" asp-route-id="@usuario.Id" class="mx-2"> <span class="text-secondary" data-feather="edit"></span> </a>
+            <a asp-controller="Usuarios" asp-action="Eliminar" asp-route-id="@usuario.Id"> <span class="text-secondary" data-feather="trash-2"></span> </a>
+            <a asp-controller="Usuarios" asp-action="Index" asp-route-id="@usuario.Id"> <span class="text-secondary" data-feather="eye"></span> </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@model List<IdentityUser>
+
+<div class="container">
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col"> Nombre </th>
+            <th scope="col"> User name </th>
+            <th scope="col"> Acción </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach(var user in Model)
+            {
+                <tr>
+                    <th scope="row"> @user.UserName </th>
+                    <td> @user.Email </td>
+                    <td>
+                        <form asp-action="DeleteUserFromRole" asp-route-namerole="@ViewBag.NameRole" asp-route-iduser="@user.Id" asp-controller="UserRole" method="post">
+                            
+                            <button type="submit" class="btn btn-outline-success"> Eliminar </button>
+
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,59 @@
+﻿@model Usuario
+
+@{ 
+    var Action = ViewData["Action"];
+}
+
+<div class="row d-flex justify-content-center mt-4">
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Nuevo usuario
+            </div>
+            <div class="card-body">
+
+                <form asp-controller="Usuarios" asp-action="@Action" method="post" class="form-row">
+                    <input asp-for="@Model.Id" value="@Model.Id"/>
+
+                    <div class="form-group col-md-12 ">
+                        <label for="nombres" class="">Nombres</label>
+                        <input class="form-control" asp-for="@Model.Nombres" value="@Model.Nombres" placeholder="Ingrese sus nombres">
+                    </div>
+                    <div class="form-group col-md-12 ">
+                        <label for="apellidos" class="">Apellidos</label>
+                        <input class="form-control" asp-for="@Model.Apellidos" value="@Model.Apellidos" placeholder="Ingrese sus apellidos ">
+                    </div>
+
+                    <div class="form-group col-md-12 ">
+                        <label for="correo" class="">Correo</label>
+                        <input class="form-control" asp-for="@Model.Correo" value="@Model.Correo" placeholder="Ingrese su correo">
+                    </div>
+                    <!-- <div class="form-group col-md-12">
+                        <label for="tarjeta" class="">Tarjeta</label>
+                        <input class="form-control" asp-for="@Model.Tarjeta" value="@Model.Tarjeta" placeholder="Ingrese su numero de tarjeta">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="pais" class="">Pais</label>
+                        <input class="form-control" asp-for="@Model.Pais" value="@Model.Pais" placeholder="Ingrese su pais">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="ciudad" class="">Ciudad</label>
+                        <input class="form-control" asp-for="@Model.Ciudad" value="@Model.Ciudad" placeholder="Ingrese su ciudad"/>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="email" class="">Email</label>
+                        <input class="form-control" asp-for="@Model.Email" value="@Model.Email" placeholder="Ingrese su email"/>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="password" class="">Password</label>
+                        <input type="password" class="form-control" asp-for="@Model.Password" value="@Model.Password" placeholder="Ingrese su contraseña"/>
+                    </div> -->
+
+                    <button type="submit" class="btn btn-lg btn-block btn-primary mb-2">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

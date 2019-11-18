@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - EcommercePlatform</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="~/css/modified.css"/>
+    <link rel="stylesheet" href="~/css/styles.css"/>
+    <link rel="stylesheet" href="~/css/panel.css"/>
+</head>
+<body>
+<nav class="main-navbar navbar fixed-top navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center p-0 m-0">
+
+    <div class="container row">
+        <div class="col-md-2 d-none d-md-block">
+            <a class="navbar-brand" href="#"> EventLoop Store </a>
+        </div>
+        
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <div class="ml-5 input-group">
+                <input type="text" class="form-control form-control-dark" placeholder="Has aquí tu busqueda">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"> Buscar </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 d-none d-md-block">
+            <div class="">
+                <ul class="navbar-action-items d-flex justify-content-around  font-weight-bold w-100 m-0">
+                    <li class="item-nav-list">
+                        <a href="https://www.google.com" class="link-nav-list text-decoration-none">
+                            <span data-feather="shopping-cart" class="icon-nav-list "> </span> <span class="badge badge-secondary counter-products-car"> 0 </span>
+                        </a>
+                    </li>
+                    
+                    <li class="item-nav-list">
+                        <a href="https://www.google.com" class="link-nav-list text-decoration-none">
+                            <span data-feather="heart" class="icon-nav-list "> </span> <span class="badge badge-secondary counter-products-car"> 0 </span>
+                        </a>
+                    </li>
+                    
+                    <partial name="_LoginPartial"/>
+
+                    <li class="item-nav-list">
+                        <a class="link-nav-list text-decoration-none" asp-controller="UserRole" asp-action="Index">
+                            <span data-feather="file-plus" class="icon-nav-list "> </span> 
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container container-fluid">
+
+    <div class="main-row row">
+
+        @* Sticky menu, categorias *@
+        <div class="col-md-2 sidebar">
+            <div class="sticky-menu">
+                <ul class="nav flex-colum">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <span data-feather="hash"></span>
+                                Categorias
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Productos" asp-action="Index">
+                                <span data-feather="shopping-bag"></span>
+                                Productos <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Usuarios" asp-action="Index">
+                                <span data-feather="user"></span>
+                                Usuarios
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        
+        @* COL *@
+        <main role="main" style="margin-left: 225px;" class="main-section col-md-10">
+
+            <div class="row">
+
+                <div class="col-md-10">
+                    @RenderBody()
+
+                    @RenderSection("ListadoFacturas", required: false)
+                    @RenderSection("ListarUsuariosRol", required: false)
+
+                    
+                </div>
+
+                <div class="col-md-1">
+                    @RenderSection("rightPanel", required: false)
+
+                    
+
+            </div>
+
+        </main>
+        @* COL *@
+
+    </div> @* main-row *@
+
+    @RenderSection("Notifications", required: false)
+
+</div> @* main-container *@
+
+
+<environment include="Development">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <script>
+            feather.replace();
+    </script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/app.js" asp-append-version="true"></script>
+
+</environment>
+<environment exclude="Development">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery"
+            crossorigin="anonymous"
+            integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+            crossorigin="anonymous"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+    </script>
+    <script src="~/js/site.min.js" asp-append-version="true">  </script>
+</environment>
+
+@RenderSection("Scripts", required: false)
+</body>
+</html>

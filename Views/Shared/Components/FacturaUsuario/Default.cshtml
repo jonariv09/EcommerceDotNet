@@ -1,0 +1,32 @@
+@model List<Factura>
+@{
+    var Facturas = @Model;
+    var Nombre = ViewBag.NombreCompleto;
+}
+
+
+<div class="container mt-4">
+
+    <div class="row"> 
+        @foreach(var factura in Facturas)
+        {
+            <div class="card border-primary mb-3 col-md-3 m-3" style="max-width: 18rem;">
+                <div class="card-body text-primary">
+                    <h5 class="card-title"> Fecha: @factura.Fecha </h5>
+                    <div class="ml-2">
+                        @foreach (var producto in factura.Productos)
+                        {
+                            <p>  @producto.Nombre - $ @producto.Precio </p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,57 @@
+﻿@model List<Usuario>
+
+
+<div class="row mt-4">
+
+    @for(int i = 0; i < Model.Count; i++)
+    {
+        @Html.DisplayFor(model => model[i]);
+    }
+
+</div>
+
+@section rightPanel
+{
+    <div class="row">
+        <div class="btn-group-vertical">
+            <a role="button" asp-controller="Usuarios" asp-action="Agregar" class="ml-auto m-2 btn btn-outline-secondary"> <span data-feather="user-plus"> </span> </a>
+            <a role="button" asp-controller="Usuarios" asp-action="FacturasUsuarios" class="ml-auto mr-2 btn btn-outline-secondary"> <span data-feather="file-text"> </span> </a>
+        </div>
+    </div>
+}
+
+
+@section Notifications {
+    <div class="container-notifications row d-flex justify-content-end" id="notifications">
+        <div class="col-md-5 ">
+            
+            <div class="toast" id="card-toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded mr-2" alt="...">
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small class="text-muted">11 mins ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+@* @section ListadoFacturas {
+    <div class="container">
+
+        @if (ViewBag.IdSeleccionado != 0)
+        {
+            @await Component.InvokeAsync("FacturaUsuario", new { id = @ViewBag.IdSeleccionado })
+        }
+
+    </div>
+} *@

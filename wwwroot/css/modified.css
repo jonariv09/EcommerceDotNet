@@ -1,0 +1,7 @@
+﻿
+.form-control-dark:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(90, 98, 104, 0.7);
+    border: 1px solid rgb(90, 98, 104);
+}
+

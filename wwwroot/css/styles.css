@@ -1,0 +1,71 @@
+﻿body {
+    font-size: 0.875rem;
+    background: rgb(252, 249, 247);
+}
+
+
+.main-navbar {
+    height: 60px;
+}
+
+.navbar-action-items, .social-networks-list {
+    list-style: none;
+}
+
+.navbar-action-items .feather{
+    color: rgb(230, 139, 110);
+    
+}
+
+.item-nav-list {
+    position: relative;
+    font-size: 12px;
+}
+
+.counter-products-car {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+/* Estilos de las targetas */
+.card-product {
+    position: relative;
+}
+
+.container-share-networks .feather {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.badge-sales {
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.bottom-card {
+    position: relative;
+}
+
+.btn-add-car {
+    height: 40px;
+    width: 40px;
+    color: white;
+    background: rgb(230, 46, 4);
+    left: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.title-networks {
+    font-size: 10px;
+    text-align: center;
+}
+
+
+/* Notificaciones */
+.notificaciones {
+    position: absolute; 
+}

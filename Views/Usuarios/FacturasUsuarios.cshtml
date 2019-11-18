@@ -1,0 +1,13 @@
+@model List<FacturaUsuarioViewModel>
+
+
+<div class="container">
+
+    <div class="row">
+            @for(int i = 0; i < Model.Count; i++)
+            {
+                @Html.DisplayFor(model => model[i]);
+            }
+    </div>
+
+</div>

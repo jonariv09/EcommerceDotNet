@@ -1,0 +1,69 @@
+﻿@model Producto
+
+@{ 
+    var Action = ViewData["Action"];
+}
+
+<div class="row d-flex justify-content-center mt-4">
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                @{
+                    if (Action.Equals("Agregar"))
+                    {
+                        <span> Nuevo producto </span>
+                    }
+                    else
+                    {
+                        <span> Editando... </span>
+                    }
+
+                }
+
+            </div>
+            <div class="card-body">
+
+                <form asp-controller="Productos" asp-action="@Action" method="post" enctype="multipart/form-data" class="form-row">
+                    <input asp-for="@Model.Id" value="@Model.Id"/>
+
+                    <div class="form-group col-md-12 ">
+                        <label for="nombre" class="">Nombre</label>
+                        <input class="form-control" asp-for="@Model.Nombre" value="@Model.Nombre" placeholder="Ingrese nombre del producto">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="precio" class="">Precio</label>
+                        <input class="form-control" asp-for="@Model.Precio" value="@Model.Precio" placeholder="Ingrese el precio">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="proveedor" class="">Proveedor</label>
+                        <input class="form-control" asp-for="@Model.Proveedor" value="@Model.Proveedor" placeholder="Ingrese el proveedor">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="descripcion" class="">Descripcion</label>
+                        <textarea class="form-control" asp-for="@Model.Descripcion" placeholder="Ingrese una descripcion">@Model.Descripcion</textarea>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="custom-file">
+                            <input type="file" name="imagen" class="custom-file-input" id="validatedCustomFile" />
+                            <label class="custom-file-label" for="validatedCustomFile"> Buscar imagen </label>
+
+                            @{
+                                if (Action.Equals("Editar"))
+                                {
+                                    <small id="emailHelp" class="form-text text-muted ml-2" style="font-size: 10px"> Al editar y no elegir una nueva imagen, se tomará la anterior. </small>
+                                }
+                            }
+                        </div>
+                    </div>
+                    
+                    <input asp-for="@Model.UniqueFileImage" value="@Model.UniqueFileImage"/>
+
+                    <button type="submit" class="btn btn-lg btn-block btn-primary mb-2">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
